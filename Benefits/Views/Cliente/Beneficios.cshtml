@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Domain.Beneficio>
+
+@{
+    ViewData["Title"] = "Beneficios";
+}
+
+<h2>Beneficios</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-info">Index</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nivel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                Beneficio teste
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nivel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CriadoEm)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BeneficioId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BeneficioId">Details</a> |
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

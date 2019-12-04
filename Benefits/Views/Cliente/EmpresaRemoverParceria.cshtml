@@ -1,0 +1,33 @@
+﻿@model Domain.EmpresaCliente
+
+@{
+    ViewData["Title"] = "EmpresaRemoverParceria";
+}
+
+<h2>Remover parceria</h2>
+
+<h3>Quer Realmente se desvincular?</h3>
+<div>
+    <h4>Empresa Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nivel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nivel)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ContratadaEm)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ContratadaEm)
+        </dd>
+    </dl>
+    
+    <form asp-action="EmpresaRemoverParceria">
+        <input type="hidden" asp-for="EmpresaClienteId"/>
+        <input type="submit" value="Delete" class="btn btn-warning" /> |
+        <a asp-action="Index" class="btn btn-info">Back to List</a>
+    </form>
+</div>

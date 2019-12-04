@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Domain.EmpresaCliente>
+
+@{
+    ViewData["Title"] = "EmpresaParceriasMinhas";
+}
+
+<h2>EmpresaParceriasMinhas</h2>
+
+<p>
+    <a asp-action="Index" class="btn btn-info">Index</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nivel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContratadaEm)
+            </th>
+            <th>
+                Empresa
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nivel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContratadaEm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Empresa.Razao)
+                </td>
+                <td>
+                    <a asp-action="EmpresaRemoverParceria" asp-route-id="@item.EmpresaClienteId" class="btn btn-info">Remover</a> |
+                    <a asp-action="EmpresaClienteDetails" asp-route-id="@item.EmpresaClienteId" class="btn btn-info">Details</a> |
+                    <a asp-action="EmpresaBeneficios" asp-route-id="@item.EmpresaClienteId" class="btn btn-dark" >Beneficios</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
